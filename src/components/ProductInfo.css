@@ -2,3 +2,7 @@ img {
 	width: 50px;
 	border: solid 1px blue;
 }
+
+.product-container {
+	background-color: lightgray;
+}

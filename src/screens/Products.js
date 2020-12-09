@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Products.css';
-import ProductInfo from '../components/ProductInfo.js'
+import ProductInfo from '../components/ProductInfo.js';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import db from '../firebaseConfig.js';
 
-const Products = () => {
+const Products = ({ setBasketItems, basketItems }) => {
 	const [ products, setProducts ] = useState([]);
 
 	useEffect(() => {
@@ -14,12 +14,19 @@ const Products = () => {
 
 	const retrieveProducts = async () => {
 		const productsRef = db.collection('products');
-		const productsData = await productsRef.get()
-		setProducts(productsData.docs.map((doc) => doc.data()))
+		const productsData = await productsRef.get();
+		setProducts(productsData.docs.map((doc) => doc.data()));
 	};
 
 	const displayProductsInfo = () => {
-		return products.map((product) => <ProductInfo product={product} key={product.image}/>)
+		return products.map((product) => (
+			<ProductInfo
+				setBasketItems={setBasketItems}
+				basketItems={basketItems}
+				product={product}
+				key={product.image}
+			/>
+		));
 	};
 
 	return (

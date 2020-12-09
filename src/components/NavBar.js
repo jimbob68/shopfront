@@ -21,6 +21,11 @@ const NavBar = () => {
 						About Us
 					</Link>
 				</li>
+				<li>
+					<Link to="/basket" className="nav-link">
+						Basket
+					</Link>
+				</li>
 			</ul>
 		</div>
 	);
