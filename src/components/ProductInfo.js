@@ -13,7 +13,10 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 
 	const retrieveImage = () => {
 		const imageRef = firebase.storage().ref(product.image);
-		imageRef.getDownloadURL().then((imageURL) => setImageSrc(imageURL));
+		imageRef.getDownloadURL().then((imageURL) => {
+			product.imageSrc = imageURL;
+			setImageSrc(imageURL);
+		});
 	};
 	const handleAddToBasket = () => {
 		const basket = basketItems.concat();
