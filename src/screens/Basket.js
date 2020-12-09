@@ -14,7 +14,7 @@ const Basket = ({ basketItems, setBasketItems }) => {
 		basketItems.forEach((item) => {
 			total += item.price;
 		});
-		return total;
+		return total.toFixed(2);
 	};
 	return (
 		<div>
