@@ -7,9 +7,12 @@ import 'firebase/storage';
 const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 	const [ imageSrc, setImageSrc ] = useState('');
 
-	useEffect(() => {
-		retrieveImage();
-	}, []);
+	useEffect(
+		() => {
+			retrieveImage();
+		},
+		[ product ]
+	);
 
 	const retrieveImage = () => {
 		const imageRef = firebase.storage().ref(product.image);
