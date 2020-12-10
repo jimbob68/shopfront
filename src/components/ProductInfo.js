@@ -19,8 +19,17 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 		});
 	};
 	const handleAddToBasket = () => {
-		const basket = basketItems.concat();
-		basket.push(product);
+		// const basket = basketItems.concat();
+		// basket.push(product);
+		// setBasketItems(basket);
+
+		// Using product.image as a unique identifier
+		const basket = { ...basketItems };
+		if (Object.keys(basket).includes(product.image)) {
+			basket[product.image]['amount'] += 1;
+		} else {
+			basket[product.image] = { product: product, amount: 1 };
+		}
 		setBasketItems(basket);
 	};
 

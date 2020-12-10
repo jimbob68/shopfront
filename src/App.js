@@ -9,11 +9,11 @@ import Basket from './screens/Basket.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
-	const [ basketItems, setBasketItems ] = useState([]);
+	const [ basketItems, setBasketItems ] = useState({});
 	return (
 		<div className="App">
 			<Router>
-				<NavBar />
+				<NavBar basketItems={basketItems} />
 				<Route exact path="/" component={Home} />
 				<Route
 					exact

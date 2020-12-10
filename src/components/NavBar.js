@@ -2,7 +2,15 @@ import React from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ basketItems }) => {
+	const displayNumberOfItems = () => {
+		let numberOfItems = 0;
+		for (const [ key, value ] of Object.entries(basketItems)) {
+			numberOfItems += value.amount;
+		}
+		return '(' + numberOfItems + ')';
+	};
+
 	return (
 		<div className="nav-bar">
 			<ul>
@@ -23,7 +31,7 @@ const NavBar = () => {
 				</li>
 				<li>
 					<Link to="/basket" className="nav-link">
-						Basket
+						Basket {displayNumberOfItems()}
 					</Link>
 				</li>
 			</ul>
