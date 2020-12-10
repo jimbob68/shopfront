@@ -60,10 +60,14 @@ const Products = ({ setBasketItems, basketItems }) => {
 	};
 
 	const displayTypesSelectBox = () => {
-		const selectOptions = productTypes.map((productType) => <option value={productType}>{productType}</option>);
+		const selectOptions = productTypes.map((productType, index) => (
+			<option key={index} value={productType}>
+				{productType}
+			</option>
+		));
 		return (
 			<select onChange={(event) => filterProductsByType(event.target.value)}>
-				<option selected disabled>
+				<option defaultValue disabled>
 					Filter by Category
 				</option>
 				<option value="All Products">All Products</option>
