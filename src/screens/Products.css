@@ -1,0 +1,26 @@
+h6 {
+	margin: 0;
+	padding-bottom: 3px;
+}
+
+.products-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.page-number-button-container {
+	display: inline;
+}
+
+.page-button {
+	margin: 10px;
+}
+
+@media screen and (max-width: 450px) {
+	.products-wrapper {
+		grid-template-columns: 1fr;
+	}
+}

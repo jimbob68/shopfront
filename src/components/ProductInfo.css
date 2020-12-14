@@ -1,8 +1,26 @@
 img {
-	width: 50px;
+	width: 180px;
+	height: 210px;
 	border: solid 1px blue;
+	margin: 5px;
 }
 
 .product-container {
 	background-color: lightgray;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	margin: 10px;
+	padding: 10px;
+	width: auto;
+}
+
+@media screen and (max-width: 450px) {
+	img {
+		width: 150px;
+		height: 180px;
+	}
+	.product-container {
+		grid-template-columns: 1fr;
+	}
 }

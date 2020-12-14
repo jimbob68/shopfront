@@ -9,6 +9,7 @@ const Products = ({ setBasketItems, basketItems }) => {
 	const [ products, setProducts ] = useState([]);
 	const [ productTypes, setProductTypes ] = useState([]);
 	const [ productsToDisplay, setProductsToDisplay ] = useState([]);
+	const [ pageNumber, setPageNumber ] = useState(1);
 
 	useEffect(() => {
 		retrieveProducts();
@@ -29,7 +30,13 @@ const Products = ({ setBasketItems, basketItems }) => {
 	};
 
 	const displayProductsInfo = () => {
-		return productsToDisplay.map((product) => (
+		// let startIndex = pageNumber * 10 - 10;
+		// const shortProductList = productsToDisplay.slice(startIndex, startIndex + 10);
+
+		let startIndex = pageNumber * 2 - 2;
+		const shortProductList = productsToDisplay.slice(startIndex, startIndex + 2);
+
+		return shortProductList.map((product) => (
 			<ProductInfo
 				setBasketItems={setBasketItems}
 				basketItems={basketItems}
@@ -66,13 +73,16 @@ const Products = ({ setBasketItems, basketItems }) => {
 			</option>
 		));
 		return (
-			<select onChange={(event) => filterProductsByType(event.target.value)}>
-				<option defaultValue disabled>
-					Filter by Category
-				</option>
-				<option value="All Products">All Products</option>
-				{selectOptions}
-			</select>
+			<div>
+				<h6>Filter by Category</h6>
+				<select onChange={(event) => filterProductsByType(event.target.value)}>
+					<option defaultValue disabled>
+						Filter by Category
+					</option>
+					<option value="All Products">All Products</option>
+					{selectOptions}
+				</select>
+			</div>
 		);
 	};
 
@@ -80,8 +90,24 @@ const Products = ({ setBasketItems, basketItems }) => {
 		<div>
 			<h1>Products</h1>
 			{displayTypesSelectBox()}
-			{/* {products && displayProductsInfo()} */}
-			{displayProductsInfo()}
+			<div className="products-wrapper">
+				{/* {products && displayProductsInfo()} */}
+				{displayProductsInfo()}
+			</div>
+			<div className="page-number-button-container">
+				{pageNumber > 1 && (
+					<button className="page-button" onClick={() => setPageNumber(pageNumber - 1)}>
+						Previous Page
+					</button>
+				)}
+				{pageNumber}
+
+				{productsToDisplay.length / 2 > pageNumber && (
+					<button className="page-button" onClick={() => setPageNumber(pageNumber + 1)}>
+						Next Page
+					</button>
+				)}
+			</div>
 		</div>
 	);
 };

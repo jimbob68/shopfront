@@ -38,23 +38,28 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 
 	return (
 		<div className="product-container">
-			<p>
-				<b>Name:</b> {product.name}
-			</p>
-			<img src={imageSrc} alt="product" />
-			<p>
-				<b>Price:</b> £{product.price}
-			</p>
-			<p>
-				<b>Description:</b> {product.description}
-			</p>
-			<p>
-				<b>Manufacturer:</b> {product.manufacturer}
-			</p>
-			<p>
-				<b>Stock:</b> {product['stock-level']}
-			</p>
-			<button onClick={handleAddToBasket}>Add to Basket</button>
+			<div>
+				<img src={imageSrc} alt="product" />
+			</div>
+			<div>
+				<p>
+					<b>Name:</b> {product.name}
+				</p>
+
+				<p>
+					<b>Price:</b> £{product.price}
+				</p>
+				<p>
+					<b>Description:</b> {product.description}
+				</p>
+				<p>
+					<b>Manufacturer:</b> {product.manufacturer}
+				</p>
+				<p>
+					<b>Stock:</b> {product['stock-level']}
+				</p>
+				<button onClick={handleAddToBasket}>Add to Basket</button>
+			</div>
 		</div>
 	);
 };
