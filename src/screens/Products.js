@@ -58,6 +58,7 @@ const Products = ({ setBasketItems, basketItems }) => {
 	};
 
 	const filterProductsByType = (type) => {
+		setPageNumber(1);
 		if (type === 'All Products') {
 			setProductsToDisplay(products);
 		} else {
