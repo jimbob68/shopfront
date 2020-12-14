@@ -17,6 +17,10 @@ h6 {
 
 .page-button {
 	margin: 10px;
+	background-color: paleturquoise;
+	border: solid 1px rebeccapurple;
+	border-radius: 10px;
+	padding: 5px;
 }
 
 @media screen and (max-width: 450px) {

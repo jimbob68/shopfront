@@ -58,7 +58,9 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 				<p>
 					<b>Stock:</b> {product['stock-level']}
 				</p>
-				<button onClick={handleAddToBasket}>Add to Basket</button>
+				<button className="add-to-basket-button" onClick={handleAddToBasket}>
+					Add to Basket
+				</button>
 			</div>
 		</div>
 	);
