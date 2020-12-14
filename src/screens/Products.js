@@ -101,8 +101,7 @@ const Products = ({ setBasketItems, basketItems }) => {
 						Previous Page
 					</button>
 				)}
-				{pageNumber}
-
+				{pageNumber} of {Math.ceil(productsToDisplay.length / 2)}
 				{productsToDisplay.length / 2 > pageNumber && (
 					<button className="page-button" onClick={() => setPageNumber(pageNumber + 1)}>
 						Next Page
