@@ -3,9 +3,12 @@ import Products from '../screens/Products';
 import './ProductInfo.css';
 import firebase from 'firebase/app';
 import 'firebase/storage';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
 const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 	const [ imageSrc, setImageSrc ] = useState('');
+	const [ modalIsOpen, setModalIsOpen ] = useState(false)
 
 	useEffect(
 		() => {
@@ -49,19 +52,38 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 				<p>
 					<b>Price:</b> £{product.price}
 				</p>
-				<p>
-					<b>Description:</b> {product.description}
-				</p>
-				<p>
-					<b>Manufacturer:</b> {product.manufacturer}
-				</p>
-				<p>
-					<b>Stock:</b> {product['stock-level']}
-				</p>
+				<button onClick={() => setModalIsOpen(true)}>More Info</button>
 				<button className="add-to-basket-button" onClick={handleAddToBasket}>
 					Add to Basket
 				</button>
 			</div>
+			<Modal isOpen={modalIsOpen} >
+				<button onClick={() => setModalIsOpen(false)}>Close</button>
+				<div>
+					<img src={imageSrc} alt="product" />
+				</div>
+				<div>
+					<p>
+						<b>Name:</b> {product.name}
+					</p>
+
+					<p>
+						<b>Price:</b> £{product.price}
+					</p>
+					<p>
+						<b>Description:</b> {product.description}
+					</p>
+					<p>
+						<b>Manufacturer:</b> {product.manufacturer}
+					</p>
+					<p>
+						<b>Stock:</b> {product['stock-level']}
+					</p>
+					<button className="add-to-basket-button" onClick={handleAddToBasket}>
+						Add to Basket
+					</button>
+				</div>
+			</Modal>
 		</div>
 	);
 };
