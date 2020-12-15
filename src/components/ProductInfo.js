@@ -52,12 +52,19 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 				<p>
 					£{product.price}
 				</p>
-				<button onClick={() => setModalIsOpen(true)}>More Info</button>
+				<button className="product-more-info-button" onClick={() => setModalIsOpen(true)}>More Info</button>
 				<button className="add-to-basket-button" onClick={handleAddToBasket}>
 					Add to Basket
 				</button>
 			</div>
-			<Modal className="modal-container" isOpen={modalIsOpen} >
+			<Modal 
+				className="modal-container" 
+				isOpen={modalIsOpen} style={{
+					overlay: {
+						backgroundColor: 'rgba(0,0,0,0.7)'
+					}
+				}}
+			>
 				<button className="modal-close-button" onClick={() => setModalIsOpen(false)}>Close</button>
 				<div className="modal-top-container">
 					<img src={imageSrc} alt="product" />
