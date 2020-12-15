@@ -24,6 +24,47 @@ img {
 	font-weight: bold;
 }
 
+.modal-container {
+	width: 50%;
+	background-color: white;
+	position: fixed;
+	top: 15%;
+	left: 25%;
+	padding: 20px;
+}
+
+.modal-top-container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	align-items: center;
+}
+
+.modal-top-container-detail {
+	margin-left: 30px;
+}
+
+.modal-add-to-basket-button {
+	margin: 10px;
+	background-color: rebeccapurple;
+	border: solid 1px black;
+	border-radius: 10px;
+	padding: 10px;
+	color: white;
+	font-weight: bold;
+	align-self: center;
+}
+
+.modal-close-button{
+	float: right;
+	margin: 10px;
+	background-color: paleturquoise;
+	border: solid 1px rebeccapurple;
+	border-radius: 10px;
+	padding: 10px;
+	color: black;
+	font-weight: bold;
+}
+
 @media screen and (max-width: 450px) {
 	img {
 		width: 150px;

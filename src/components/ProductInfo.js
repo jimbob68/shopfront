@@ -46,43 +46,43 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 			</div>
 			<div>
 				<p>
-					<b>Name:</b> {product.name}
+					<b>{product.name}</b>
 				</p>
 
 				<p>
-					<b>Price:</b> £{product.price}
+					£{product.price}
 				</p>
 				<button onClick={() => setModalIsOpen(true)}>More Info</button>
 				<button className="add-to-basket-button" onClick={handleAddToBasket}>
 					Add to Basket
 				</button>
 			</div>
-			<Modal isOpen={modalIsOpen} >
-				<button onClick={() => setModalIsOpen(false)}>Close</button>
-				<div>
+			<Modal className="modal-container" isOpen={modalIsOpen} >
+				<button className="modal-close-button" onClick={() => setModalIsOpen(false)}>Close</button>
+				<div className="modal-top-container">
 					<img src={imageSrc} alt="product" />
-				</div>
-				<div>
-					<p>
-						<b>Name:</b> {product.name}
-					</p>
+					<div className="modal-top-container-detail">
+						<p>
+							<b>Name:</b> {product.name}
+						</p>
 
-					<p>
-						<b>Price:</b> £{product.price}
-					</p>
+						<p>
+							<b>Price:</b> £{product.price}
+						</p>
+						<p>
+							<b>Manufacturer:</b> {product.manufacturer}
+						</p>
+						<p>
+							<b>Stock:</b> {product['stock-level']}
+						</p>
+					</div>
+				</div>
 					<p>
 						<b>Description:</b> {product.description}
 					</p>
-					<p>
-						<b>Manufacturer:</b> {product.manufacturer}
-					</p>
-					<p>
-						<b>Stock:</b> {product['stock-level']}
-					</p>
-					<button className="add-to-basket-button" onClick={handleAddToBasket}>
+					<button className="modal-add-to-basket-button" onClick={handleAddToBasket}>
 						Add to Basket
 					</button>
-				</div>
 			</Modal>
 		</div>
 	);
