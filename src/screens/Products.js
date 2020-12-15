@@ -33,8 +33,8 @@ const Products = ({ setBasketItems, basketItems }) => {
 		// let startIndex = pageNumber * 10 - 10;
 		// const shortProductList = productsToDisplay.slice(startIndex, startIndex + 10);
 
-		let startIndex = pageNumber * 2 - 2;
-		const shortProductList = productsToDisplay.slice(startIndex, startIndex + 2);
+		let startIndex = pageNumber * 6 - 6;
+		const shortProductList = productsToDisplay.slice(startIndex, startIndex + 6);
 
 		return shortProductList.map((product) => (
 			<ProductInfo
@@ -101,8 +101,8 @@ const Products = ({ setBasketItems, basketItems }) => {
 						Previous Page
 					</button>
 				)}
-				{pageNumber} of {Math.ceil(productsToDisplay.length / 2)}
-				{productsToDisplay.length / 2 > pageNumber && (
+				{pageNumber} of {Math.ceil(productsToDisplay.length / 6)}
+				{productsToDisplay.length / 6 > pageNumber && (
 					<button className="page-button" onClick={() => setPageNumber(pageNumber + 1)}>
 						Next Page
 					</button>
