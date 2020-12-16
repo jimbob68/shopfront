@@ -1,0 +1,32 @@
+.basket-item-container {
+	background-color: lightgray;
+	margin: 10px;
+	padding: 10px;
+	width: 500px;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.basket-detail-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+}
+.basket-button {
+	margin: 10px;
+	background-color: white;
+	border: solid 1px black;
+	border-radius: 10px;
+	padding: 7px 10px;
+	color: rebeccapurple;
+	font-weight: bold;
+}
+@media screen and (max-width: 450px) {
+	.basket-item-container {
+		width: 85%;
+	}
+	.basket-detail-wrapper {
+		grid-template-columns: 1fr;
+		justify-items: center;
+	}
+}

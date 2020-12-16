@@ -23,6 +23,11 @@ h6 {
 	padding: 5px;
 }
 
+@media screen and (max-width: 1090px) {
+	.products-wrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+}
 @media screen and (max-width: 450px) {
 	.products-wrapper {
 		grid-template-columns: 1fr;

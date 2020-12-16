@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 
 const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 	const [ imageSrc, setImageSrc ] = useState('');
-	const [ modalIsOpen, setModalIsOpen ] = useState(false)
+	const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
 	useEffect(
 		() => {
@@ -49,23 +49,27 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 					<b>{product.name}</b>
 				</p>
 
-				<p>
-					£{product.price}
-				</p>
-				<button className="product-more-info-button" onClick={() => setModalIsOpen(true)}>More Info</button>
+				<p>£{product.price}</p>
+				<button className="product-more-info-button" onClick={() => setModalIsOpen(true)}>
+					More Info
+				</button>
 				<button className="add-to-basket-button" onClick={handleAddToBasket}>
 					Add to Basket
 				</button>
 			</div>
-			<Modal 
-				className="modal-container" 
-				isOpen={modalIsOpen} style={{
+			<Modal
+				className="modal-container"
+				appElement={document.getElementById('root')}
+				isOpen={modalIsOpen}
+				style={{
 					overlay: {
 						backgroundColor: 'rgba(0,0,0,0.7)'
 					}
 				}}
 			>
-				<button className="modal-close-button" onClick={() => setModalIsOpen(false)}>Close</button>
+				<button className="modal-close-button" onClick={() => setModalIsOpen(false)}>
+					Close
+				</button>
 				<div className="modal-top-container">
 					<img src={imageSrc} alt="product" />
 					<div className="modal-top-container-detail">
@@ -84,12 +88,12 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 						</p>
 					</div>
 				</div>
-					<p>
-						<b>Description:</b> {product.description}
-					</p>
-					<button className="modal-add-to-basket-button" onClick={handleAddToBasket}>
-						Add to Basket
-					</button>
+				<p>
+					<b>Description:</b> {product.description}
+				</p>
+				<button className="modal-add-to-basket-button" onClick={handleAddToBasket}>
+					Add to Basket
+				</button>
 			</Modal>
 		</div>
 	);

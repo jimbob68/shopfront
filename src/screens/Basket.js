@@ -34,9 +34,10 @@ const Basket = ({ basketItems, setBasketItems }) => {
 	};
 	return (
 		<div>
-			<p>Basket</p>
+			<h1>Basket</h1>
+			<h4>Total: £{basketTotal()}</h4>
 			{displayBasketItems()}
-			<p>Total: £{basketTotal()}</p>
+			<h4>Total: £{basketTotal()}</h4>
 		</div>
 	);
 };

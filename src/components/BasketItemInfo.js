@@ -37,15 +37,32 @@ const BasketItemInfo = ({ item, basketItems, setBasketItems }) => {
 	};
 
 	return (
-		<div>
-			<p>{item.product.name}</p>
-			<p>
-				£{item.product.price} {showNumberOfItems()}
-			</p>
-			<img src={item.product.imageSrc} alt={item.product.name} />
-			<button onClick={handleRemoveItem}>Remove All</button>
-			<button onClick={handleRemoveOneItem}>Remove 1</button>
-			<button onClick={handleAddOneItem}>Add 1</button>
+		<div className="basket-item-container">
+			<div className="basket-detail-wrapper">
+				<img src={item.product.imageSrc} alt={item.product.name} />
+				<div>
+					<h4>
+						<b>
+							{item.product.name} ( x {item.amount})
+						</b>
+					</h4>
+					{/* <p>
+						£{item.product.price} {showNumberOfItems()}
+					</p> */}
+					<p>Product Price: £{item.product.price}</p>
+					<p>Total Items Price: £{(item.product.price * item.amount).toFixed(2)}</p>
+
+					<button className="basket-button" onClick={handleAddOneItem}>
+						Add 1
+					</button>
+					<button className="basket-button" onClick={handleRemoveOneItem}>
+						Remove 1
+					</button>
+					<button className="basket-button" onClick={handleRemoveItem}>
+						Remove All
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 };

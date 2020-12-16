@@ -67,7 +67,7 @@ img {
 	align-self: center;
 }
 
-.modal-close-button{
+.modal-close-button {
 	float: right;
 	margin: 10px;
 	background-color: paleturquoise;
@@ -85,5 +85,14 @@ img {
 	}
 	.product-container {
 		grid-template-columns: 1fr;
+	}
+	.modal-container {
+		width: 85%;
+		top: 15%;
+		left: 5%;
+		padding: 10px;
+	}
+	.modal-top-container {
+		margin-top: 50px;
 	}
 }
