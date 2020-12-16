@@ -13,6 +13,7 @@ const NavBar = ({ basketItems }) => {
 
 	return (
 		<div className="nav-bar">
+			<h1 className="nav-bar-shop-title">Chrimbo Land</h1>
 			<ul>
 				<li>
 					<Link to="/" className="nav-link">

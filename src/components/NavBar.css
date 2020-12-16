@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
 .nav-bar {
 	background-color: rebeccapurple;
 	width: 100%;
-	height: 110px;
+	height: auto;
+	/* padding: 20px; */
+	justify-items: center;
+	padding-top: 20px;
+	padding-bottom: 5px;
 }
 .nav-link {
 	text-decoration: none;
@@ -9,8 +15,19 @@
 }
 .nav-bar ul {
 	list-style: none;
+	/* padding-right: 75px; */
+	margin: 0px;
+	padding-bottom: 5px;
 }
 .nav-bar li {
 	display: inline-block;
-	margin-right: 20px;
+	padding: 0px 20px;
+	font-size: 20px;
+}
+.nav-bar-shop-title {
+	font-family: 'Yellowtail', cursive;
+	font-size: 60px;
+	color: white;
+	margin: 0px;
+	/* padding-right: 45px; */
 }
