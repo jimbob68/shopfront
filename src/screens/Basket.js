@@ -20,6 +20,15 @@ const Basket = ({ basketItems, setBasketItems }) => {
 		});
 		return basket;
 	};
+
+	const getNumberOfItemsInBasket = () => {
+		let basketSize = 0;
+		for (const [ key, value ] of Object.entries(basketItems)) {
+			basketSize += value.amount;
+		}
+		return basketSize;
+	};
+
 	const basketTotal = () => {
 		// let total = 0;
 		// basketItems.forEach((item) => {
@@ -34,7 +43,7 @@ const Basket = ({ basketItems, setBasketItems }) => {
 	};
 	return (
 		<div>
-			<h1>Basket</h1>
+			<h1>Basket ({getNumberOfItemsInBasket()})</h1>
 			<h4>Total: £{basketTotal()}</h4>
 			{displayBasketItems()}
 			<h4>Total: £{basketTotal()}</h4>
