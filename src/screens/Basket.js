@@ -1,6 +1,8 @@
 import React from 'react';
 import './Basket.css';
 import BasketItemInfo from '../components/BasketItemInfo.js';
+import firebase from 'firebase/app';
+import db from '../firebaseConfig.js';
 
 const Basket = ({ basketItems, setBasketItems }) => {
 	const displayBasketItems = () => {
@@ -41,12 +43,40 @@ const Basket = ({ basketItems, setBasketItems }) => {
 		}
 		return total.toFixed(2);
 	};
+
+	const handleBuy = async () => {
+		const batch = db.batch();
+		let validBasket = true;
+		for (const [ key, value ] of Object.entries(basketItems)) {
+			const newStock = value.product['stock-level'] - value.amount;
+			if (newStock < 0) {
+				validBasket = false;
+				alert(
+					'Sorry there is only ' +
+						value.product['stock-level'] +
+						' of ' +
+						value.product.name +
+						' in stock. Please edit your basket and try again.'
+				);
+			} else {
+				const productRef = db.collection('products').doc(value.product.id);
+				batch.update(productRef, { 'stock-level': newStock });
+			}
+		}
+		if (validBasket) {
+			await batch.commit();
+			setBasketItems({});
+			alert('Purchase successful Thank You for your custom!');
+		}
+	};
+
 	return (
 		<div>
 			<h1>Basket ({getNumberOfItemsInBasket()})</h1>
 			<h4>Total: £{basketTotal()}</h4>
 			{displayBasketItems()}
 			<h4>Total: £{basketTotal()}</h4>
+			<button onClick={() => handleBuy()}>Buy</button>
 		</div>
 	);
 };
