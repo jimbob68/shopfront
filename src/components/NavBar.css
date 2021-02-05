@@ -37,9 +37,19 @@
 }
 
 @media screen and (max-width: 600px) {
-	.nav-bar li:not(:nth-child(1)) {
+	/* .nav-bar li:not(:first-child ) {
+		display: none;
+	} */
+	/* .nav-bar li:not(:last-child) {
+		display: none;
+	} */
+
+	.nav-bar li:not(:nth-child(4n + 1) ) {
 		display: none;
 	}
+
+	
+
 	.nav-bar .menu-button {
 		float: right;
 		display: block;

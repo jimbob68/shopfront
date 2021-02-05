@@ -54,10 +54,13 @@ const NavBar = ({ basketItems }) => {
 							Basket {displayNumberOfItems()}
 						</Link>
 					</li>
-				</ul>
-				<button className="menu-button" onClick={() => handleHamburgerClick()}>
+					<li>
+					<button className="menu-button" onClick={() => handleHamburgerClick()}>
 					Menu
-				</button>
+					</button>
+					</li>
+				</ul>
+				
 			</div>
 		</div>
 	);
