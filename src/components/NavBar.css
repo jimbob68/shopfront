@@ -4,24 +4,24 @@
 	background-color: rebeccapurple;
 	width: 100%;
 	height: auto;
-	/* padding: 20px; */
 	justify-items: center;
 	padding-top: 20px;
-	padding-bottom: 5px;
+	/* padding-bottom: 15px; */
 }
 .nav-link {
 	text-decoration: none;
 	color: white;
+	padding: 10px 15px ;
 }
 .nav-bar ul {
 	list-style: none;
 	/* padding-right: 75px; */
 	margin: 0px;
-	padding-bottom: 5px;
+	padding: 0px;
 }
 .nav-bar li {
 	display: inline-block;
-	padding: 0px 20px;
+	/* padding: 0px 20px; */
 	font-size: 20px;
 }
 .nav-bar-shop-title {
