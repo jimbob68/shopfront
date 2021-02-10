@@ -6,12 +6,14 @@
 	height: auto;
 	justify-items: center;
 	padding-top: 20px;
-	/* padding-bottom: 15px; */
+	padding-bottom: 15px;
 }
+
 .nav-link {
 	text-decoration: none;
 	color: white;
 	padding: 10px 15px ;
+	font-size: 20px;
 }
 .nav-bar ul {
 	list-style: none;
@@ -20,10 +22,9 @@
 	padding: 0px;
 }
 .nav-bar li {
-	display: inline-block;
-	/* padding: 0px 20px; */
-	font-size: 20px;
+	display: inline-block;	
 }
+
 .nav-bar-shop-title {
 	font-family: 'Yellowtail', cursive;
 	font-size: 60px;
