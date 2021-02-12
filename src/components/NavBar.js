@@ -1,6 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 
 const NavBar = ({ basketItems }) => {
 	const displayNumberOfItems = () => {
@@ -32,7 +33,7 @@ const NavBar = ({ basketItems }) => {
 	return (
 		<div className="nav-bar" id="myNavigation">
 			<h1 className="nav-bar-shop-title">Chrimbo Land</h1>
-			<div>
+			<div className="nav-bar-links-container">
 				<ul>
 					<li>
 						<Link to="/" className="nav-link">
@@ -55,9 +56,9 @@ const NavBar = ({ basketItems }) => {
 						</Link>
 					</li>
 				</ul>
-				<button className="menu-button" onClick={() => handleHamburgerClick()}>
-					Menu
-				</button>
+				<i className="menu-icon" onClick={() => handleHamburgerClick()}>
+					<FaBars />
+				</i>
 			</div>
 		</div>
 	);
