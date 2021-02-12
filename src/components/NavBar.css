@@ -53,6 +53,7 @@
 
 	.nav-bar li {
 		padding-top: 5px;
+		font-weight: bold;
 	}
 	.nav-bar .menu-icon {
 		/* float: right; */
@@ -81,6 +82,10 @@
 		text-align: left;
 		padding: 5px 20px;
 	}
+
+	/* .nav-bar.responsive .nav-bar-links-container {
+		background-color: darkgrey;
+	} */
 }
 
 /* Add an active class to highlight the current page */

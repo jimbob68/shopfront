@@ -12,21 +12,23 @@ const App = () => {
 	const [ basketItems, setBasketItems ] = useState({});
 	return (
 		<div className="App">
-			<Router>
-				<NavBar basketItems={basketItems} />
-				<Route exact path="/" component={Home} />
-				<Route
-					exact
-					path="/products"
-					render={() => <Products setBasketItems={setBasketItems} basketItems={basketItems} />}
-				/>
-				<Route path="/about-us" component={AboutUs} />
-				<Route
-					path="/basket"
-					render={() => <Basket basketItems={basketItems} setBasketItems={setBasketItems} />}
-				/>
-				<Footer />
-			</Router>
+			<div className="content-wrapper">
+				<Router>
+					<NavBar basketItems={basketItems} />
+					<Route exact path="/" component={Home} />
+					<Route
+						exact
+						path="/products"
+						render={() => <Products setBasketItems={setBasketItems} basketItems={basketItems} />}
+					/>
+					<Route path="/about-us" component={AboutUs} />
+					<Route
+						path="/basket"
+						render={() => <Basket basketItems={basketItems} setBasketItems={setBasketItems} />}
+					/>
+					<Footer />
+				</Router>
+			</div>
 		</div>
 	);
 };

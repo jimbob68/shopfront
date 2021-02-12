@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
 	return (
 		<div className="footer">
-			<p>Footer</p>
+			<p>&copy; cjs 2021</p>
 		</div>
 	);
 };
