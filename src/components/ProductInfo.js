@@ -71,7 +71,7 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 					Close
 				</button>
 				<div className="modal-top-container">
-					<img src={imageSrc} alt="product" />
+					<img className="product-image" src={imageSrc} alt="product" />
 					<div className="modal-top-container-detail">
 						<p>
 							<b>Name:</b> {product.name}

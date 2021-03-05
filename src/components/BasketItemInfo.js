@@ -39,7 +39,7 @@ const BasketItemInfo = ({ item, basketItems, setBasketItems }) => {
 	return (
 		<div className="basket-item-container">
 			<div className="basket-detail-wrapper">
-				<img src={item.product.imageSrc} alt={item.product.name} />
+				<img className="product-image" src={item.product.imageSrc} alt={item.product.name} />
 				<div>
 					<h4>
 						<b>

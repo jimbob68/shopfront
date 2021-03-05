@@ -1,0 +1,48 @@
+.about-info {
+	background-color: rgb(221, 144, 217);
+	padding: 20px;
+	font-size: 30px;
+	margin: 10px;
+}
+
+/* .about-shop-opening-times {
+
+} */
+
+table {
+	margin: auto;
+	/* border: 1px solid gray; */
+	background-color: rgb(221, 144, 217);
+	margin-bottom: 20px;
+	/* border-collapse: collapse; */
+}
+
+th,
+td {
+	padding: 10px;
+	border: 1px solid gray;
+	font-size: 20px;
+	/* border-collapse: collapse; */
+}
+
+.facebook-icon {
+	font-size: 50px;
+	color: royalblue;
+}
+
+.twitter-icon {
+	font-size: 50px;
+	color: rgb(102, 124, 190);
+}
+
+.instagram-icon {
+	font-size: 50px;
+	color: rgb(225, 65, 158);
+}
+
+@media screen and (max-width: 450px) {
+	table {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

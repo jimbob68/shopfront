@@ -7,7 +7,7 @@ const Home = () => {
 		<div className="home-container">
 			<p className="home-page-text">
 				Welcome to our fantastic Christmas store, for all your festive requirements. If we don't have it, it's
-				not worth buying!!!
+				not worth buying!!! SALE NOW ON!!! Unbelievable bargains!!!
 			</p>
 			{/* <img className="home-page-image" src={homePageImage} alt="presents" /> */}
 		</div>
