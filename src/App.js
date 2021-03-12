@@ -10,22 +10,22 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
 	const [ basketItems, setBasketItems ] = useState({});
-	const [ pageNumber, setPageNumber ] = useState(1);
 
 	return (
 		<div className="App">
 			<div className="content-wrapper">
 				<Router>
-					<NavBar basketItems={basketItems} setPageNumber={setPageNumber} />
+					<NavBar basketItems={basketItems} />
 					<Route exact path="/" component={Home} />
 					<Route
 						exact
 						path="/products"
 						render={() => <Products 
+							// the key is to generate a unique random number so the page can re-render itself
+							key={Date.now()}
 							setBasketItems={setBasketItems} 
 							basketItems={basketItems}
-							pageNumber={pageNumber}
-							setPageNumber={setPageNumber} />}
+							/>}
 					/>
 					<Route path="/about-us" component={AboutUs} />
 					<Route
