@@ -3,8 +3,7 @@ import './NavBar.css';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 
-const NavBar = ({ basketItems }) => {
-	
+const NavBar = ({ basketItems, setPageNumber, setProductsToDisplay, products }) => {
 	const displayNumberOfItems = () => {
 		let numberOfItems = 0;
 		for (const [ key, value ] of Object.entries(basketItems)) {
@@ -21,6 +20,11 @@ const NavBar = ({ basketItems }) => {
 			navBarElement.className = 'nav-bar';
 		}
 		console.log('navBarElement', navBarElement);
+	};
+
+	const handleProductsClick = () => {
+		setPageNumber(1);
+		setProductsToDisplay(products);
 	};
 	// 	function myFunction() {
 	//   var x = document.getElementById("myTopnav");
@@ -41,7 +45,7 @@ const NavBar = ({ basketItems }) => {
 							Home
 						</Link>
 					</li>
-					<li>
+					<li onClick={() => handleProductsClick()}>
 						{/* resets the products page when on another viewed page */}
 						<Link to="/products" className="nav-link">
 							Products

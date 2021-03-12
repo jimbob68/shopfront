@@ -5,29 +5,50 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 import db from '../firebaseConfig.js';
 
-const Products = ({ setBasketItems, basketItems }) => {
-	const [ products, setProducts ] = useState([]);
+const Products = ({
+	setBasketItems,
+	basketItems,
+	products,
+	setProducts,
+	pageNumber,
+	setPageNumber,
+	productsToDisplay,
+	setProductsToDisplay
+}) => {
+	// const [ products, setProducts ] = useState([]);
 	const [ productTypes, setProductTypes ] = useState([]);
-	const [ productsToDisplay, setProductsToDisplay ] = useState([]);
-	const [ pageNumber, setPageNumber ] = useState(1);
+	// const [ productsToDisplay, setProductsToDisplay ] = useState([]);
+	// const [ pageNumber, setPageNumber ] = useState(1);
 
-	useEffect(() => {
-		retrieveProducts();
-	}, []);
+	// useEffect(() => {
+	// 	retrieveProducts();
+	// }, []);
 
 	useEffect(
 		() => {
 			getProductTypes();
+			// document.getElementsByTagName('select').selectedIndex = 0;
+
+			// filterProductsByType('All Products');
 		},
 		[ products ]
 	);
+	useEffect(
+		() => {
+			if (productsToDisplay === products) {
+				document.getElementById('select').selectedIndex = 1;
+				console.log('select');
+			}
+		},
+		[ productsToDisplay ]
+	);
 
-	const retrieveProducts = async () => {
-		const productsRef = db.collection('products');
-		const productsData = await productsRef.get();
-		setProducts(productsData.docs.map((doc) => doc.data()));
-		setProductsToDisplay(productsData.docs.map((doc) => doc.data()));
-	};
+	// const retrieveProducts = async () => {
+	// 	const productsRef = db.collection('products');
+	// 	const productsData = await productsRef.get();
+	// 	setProducts(productsData.docs.map((doc) => doc.data()));
+	// 	setProductsToDisplay(productsData.docs.map((doc) => doc.data()));
+	// };
 
 	const displayProductsInfo = () => {
 		// let startIndex = pageNumber * 10 - 10;
@@ -76,7 +97,7 @@ const Products = ({ setBasketItems, basketItems }) => {
 		return (
 			<div>
 				<h6>Filter by Category</h6>
-				<select onChange={(event) => filterProductsByType(event.target.value)}>
+				<select id="select" onChange={(event) => filterProductsByType(event.target.value)}>
 					<option defaultValue disabled>
 						Filter by Category
 					</option>
