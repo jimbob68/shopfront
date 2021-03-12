@@ -76,7 +76,7 @@ const Basket = ({ basketItems, setBasketItems }) => {
 			<h4>Total: £{basketTotal()}</h4>
 			{displayBasketItems()}
 			<h4>Total: £{basketTotal()}</h4>
-			<button onClick={() => handleBuy()}>Buy</button>
+			<button className="buy-button" onClick={() => handleBuy()}>Buy</button>
 		</div>
 	);
 };
