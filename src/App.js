@@ -10,16 +10,22 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
 	const [ basketItems, setBasketItems ] = useState({});
+	const [ pageNumber, setPageNumber ] = useState(1);
+
 	return (
 		<div className="App">
 			<div className="content-wrapper">
 				<Router>
-					<NavBar basketItems={basketItems} />
+					<NavBar basketItems={basketItems} setPageNumber={setPageNumber} />
 					<Route exact path="/" component={Home} />
 					<Route
 						exact
 						path="/products"
-						render={() => <Products setBasketItems={setBasketItems} basketItems={basketItems} />}
+						render={() => <Products 
+							setBasketItems={setBasketItems} 
+							basketItems={basketItems}
+							pageNumber={pageNumber}
+							setPageNumber={setPageNumber} />}
 					/>
 					<Route path="/about-us" component={AboutUs} />
 					<Route

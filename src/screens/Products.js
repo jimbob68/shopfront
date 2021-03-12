@@ -5,11 +5,11 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 import db from '../firebaseConfig.js';
 
-const Products = ({ setBasketItems, basketItems }) => {
+const Products = ({ setBasketItems, basketItems, pageNumber, setPageNumber }) => {
 	const [ products, setProducts ] = useState([]);
 	const [ productTypes, setProductTypes ] = useState([]);
 	const [ productsToDisplay, setProductsToDisplay ] = useState([]);
-	const [ pageNumber, setPageNumber ] = useState(1);
+	// const [ pageNumber, setPageNumber ] = useState(1);
 
 	useEffect(() => {
 		retrieveProducts();

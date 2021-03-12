@@ -3,7 +3,8 @@ import './NavBar.css';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 
-const NavBar = ({ basketItems }) => {
+const NavBar = ({ basketItems, setPageNumber }) => {
+	
 	const displayNumberOfItems = () => {
 		let numberOfItems = 0;
 		for (const [ key, value ] of Object.entries(basketItems)) {
@@ -40,7 +41,8 @@ const NavBar = ({ basketItems }) => {
 							Home
 						</Link>
 					</li>
-					<li>
+					<li onClick={()=> setPageNumber(1)}>
+						{/* resets the products page when on another viewed page */}
 						<Link to="/products" className="nav-link">
 							Products
 						</Link>
