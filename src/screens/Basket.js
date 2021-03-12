@@ -45,28 +45,33 @@ const Basket = ({ basketItems, setBasketItems }) => {
 	};
 
 	const handleBuy = async () => {
-		const batch = db.batch();
-		let validBasket = true;
-		for (const [ key, value ] of Object.entries(basketItems)) {
-			const newStock = value.product['stock-level'] - value.amount;
-			if (newStock < 0) {
-				validBasket = false;
-				alert(
-					'Sorry there is only ' +
-						value.product['stock-level'] +
-						' of ' +
-						value.product.name +
-						' in stock. Please edit your basket and try again.'
-				);
-			} else {
-				const productRef = db.collection('products').doc(value.product.id);
-				batch.update(productRef, { 'stock-level': newStock });
-			}
+		if ( Object.entries( basketItems ).length === 0 ){
+			alert( "Please add a product to your basket" )
 		}
-		if (validBasket) {
-			await batch.commit();
-			setBasketItems({});
-			alert('Purchase successful Thank You for your custom!');
+		else {
+			const batch = db.batch();
+			let validBasket = true;
+			for (const [ key, value ] of Object.entries(basketItems)) {
+				const newStock = value.product['stock-level'] - value.amount;
+				if (newStock < 0) {
+					validBasket = false;
+					alert(
+						'Sorry there is only ' +
+							value.product['stock-level'] +
+							' of ' +
+							value.product.name +
+							' in stock. Please edit your basket and try again.'
+					);
+				} else {
+					const productRef = db.collection('products').doc(value.product.id);
+					batch.update(productRef, { 'stock-level': newStock });
+				}
+			}
+			if (validBasket) {
+				await batch.commit();
+				setBasketItems({});
+				alert('Purchase successful Thank You for your custom!');
+			}
 		}
 	};
 

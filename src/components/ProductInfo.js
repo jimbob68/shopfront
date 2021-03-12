@@ -9,6 +9,7 @@ import Modal from 'react-modal';
 const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 	const [ imageSrc, setImageSrc ] = useState('');
 	const [ modalIsOpen, setModalIsOpen ] = useState(false);
+	const [ itemCounter, setItemCounter ] = useState( 0 );
 
 	useEffect(
 		() => {
@@ -30,13 +31,22 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 		// setBasketItems(basket);
 
 		// Using product.image as a unique identifier
-		const basket = { ...basketItems };
-		if (Object.keys(basket).includes(product.image)) {
-			basket[product.image]['amount'] += 1;
+		if ( product["stock-level"] > 0 ) {
+			if ( product["stock-level"] > itemCounter ) {
+				const basket = { ...basketItems };
+				if (Object.keys(basket).includes(product.image)) {
+					basket[product.image]['amount'] += 1;
+				} else {
+					basket[product.image] = { product: product, amount: 1 };
+				}
+				setBasketItems(basket);
+				setItemCounter( itemCounter + 1 )
+			} else {
+				alert( "Sorry, we do not have any more of this item available at this time." )
+			}
 		} else {
-			basket[product.image] = { product: product, amount: 1 };
+			alert( "Sorry, this item is currently out of stock." )
 		}
-		setBasketItems(basket);
 	};
 
 	return (
