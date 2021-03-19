@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Products.css';
 import ProductInfo from '../components/ProductInfo.js';
-import firebase from 'firebase/app';
-import 'firebase/storage';
-import db from '../firebaseConfig.js';
 
 const Products = ({
 	setBasketItems,
@@ -15,21 +12,11 @@ const Products = ({
 	productsToDisplay,
 	setProductsToDisplay
 }) => {
-	// const [ products, setProducts ] = useState([]);
 	const [ productTypes, setProductTypes ] = useState([]);
-	// const [ productsToDisplay, setProductsToDisplay ] = useState([]);
-	// const [ pageNumber, setPageNumber ] = useState(1);
-
-	// useEffect(() => {
-	// 	retrieveProducts();
-	// }, []);
 
 	useEffect(
 		() => {
 			getProductTypes();
-			// document.getElementsByTagName('select').selectedIndex = 0;
-
-			// filterProductsByType('All Products');
 		},
 		[ products ]
 	);
@@ -43,17 +30,7 @@ const Products = ({
 		[ productsToDisplay ]
 	);
 
-	// const retrieveProducts = async () => {
-	// 	const productsRef = db.collection('products');
-	// 	const productsData = await productsRef.get();
-	// 	setProducts(productsData.docs.map((doc) => doc.data()));
-	// 	setProductsToDisplay(productsData.docs.map((doc) => doc.data()));
-	// };
-
 	const displayProductsInfo = () => {
-		// let startIndex = pageNumber * 10 - 10;
-		// const shortProductList = productsToDisplay.slice(startIndex, startIndex + 10);
-
 		let startIndex = pageNumber * 6 - 6;
 		const shortProductList = productsToDisplay.slice(startIndex, startIndex + 6);
 

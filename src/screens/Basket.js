@@ -1,15 +1,10 @@
 import React from 'react';
 import './Basket.css';
 import BasketItemInfo from '../components/BasketItemInfo.js';
-import firebase from 'firebase/app';
 import db from '../firebaseConfig.js';
 
 const Basket = ({ basketItems, setBasketItems }) => {
 	const displayBasketItems = () => {
-		// const basket = basketItems.map((item, index) => {
-		// 	return <BasketItemInfo item={item} basketItems={basketItems} setBasketItems={setBasketItems} key={index} />;
-		// });
-		// return basket;
 		const basket = Object.keys(basketItems).map((key, index) => {
 			return (
 				<BasketItemInfo
@@ -32,11 +27,6 @@ const Basket = ({ basketItems, setBasketItems }) => {
 	};
 
 	const basketTotal = () => {
-		// let total = 0;
-		// basketItems.forEach((item) => {
-		// 	total += item.price;
-		// });
-		// return total.toFixed(2);
 		let total = 0;
 		for (const [ key, value ] of Object.entries(basketItems)) {
 			total += value.product.price * value.amount;
@@ -45,10 +35,9 @@ const Basket = ({ basketItems, setBasketItems }) => {
 	};
 
 	const handleBuy = async () => {
-		if ( Object.entries( basketItems ).length === 0 ){
-			alert( "Please add a product to your basket" )
-		}
-		else {
+		if (Object.entries(basketItems).length === 0) {
+			alert('Please add a product to your basket');
+		} else {
 			const batch = db.batch();
 			let validBasket = true;
 			for (const [ key, value ] of Object.entries(basketItems)) {
@@ -81,7 +70,9 @@ const Basket = ({ basketItems, setBasketItems }) => {
 			<h4>Total: £{basketTotal()}</h4>
 			{displayBasketItems()}
 			<h4>Total: £{basketTotal()}</h4>
-			<button className="buy-button" onClick={() => handleBuy()}>Buy</button>
+			<button className="buy-button" onClick={() => handleBuy()}>
+				Buy
+			</button>
 		</div>
 	);
 };

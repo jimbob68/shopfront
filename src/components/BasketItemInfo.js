@@ -3,10 +3,6 @@ import './BasketItemInfo.css';
 
 const BasketItemInfo = ({ item, basketItems, setBasketItems }) => {
 	const handleRemoveItem = () => {
-		// const basket = basketItems.concat();
-		// const index = basket.indexOf(item);
-		// basket.splice(index, 1);
-		// setBasketItems(basket);
 		const basket = { ...basketItems };
 		delete basket[item.product.image];
 		setBasketItems(basket);
@@ -46,9 +42,6 @@ const BasketItemInfo = ({ item, basketItems, setBasketItems }) => {
 							{item.product.name} ( x {item.amount})
 						</b>
 					</h4>
-					{/* <p>
-						£{item.product.price} {showNumberOfItems()}
-					</p> */}
 					<p>Product Price: £{item.product.price}</p>
 					<p>Total Items Price: £{(item.product.price * item.amount).toFixed(2)}</p>
 

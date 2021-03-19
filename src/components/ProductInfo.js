@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Products from '../screens/Products';
 import './ProductInfo.css';
 import firebase from 'firebase/app';
 import 'firebase/storage';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
 const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 	const [ imageSrc, setImageSrc ] = useState('');
 	const [ modalIsOpen, setModalIsOpen ] = useState(false);
-	const [ itemCounter, setItemCounter ] = useState( 0 );
+	const [ itemCounter, setItemCounter ] = useState(0);
 
 	useEffect(
 		() => {
@@ -26,13 +24,9 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 		});
 	};
 	const handleAddToBasket = () => {
-		// const basket = basketItems.concat();
-		// basket.push(product);
-		// setBasketItems(basket);
-
 		// Using product.image as a unique identifier
-		if ( product["stock-level"] > 0 ) {
-			if ( product["stock-level"] > itemCounter ) {
+		if (product['stock-level'] > 0) {
+			if (product['stock-level'] > itemCounter) {
 				const basket = { ...basketItems };
 				if (Object.keys(basket).includes(product.image)) {
 					basket[product.image]['amount'] += 1;
@@ -40,12 +34,12 @@ const ProductInfo = ({ product, basketItems, setBasketItems }) => {
 					basket[product.image] = { product: product, amount: 1 };
 				}
 				setBasketItems(basket);
-				setItemCounter( itemCounter + 1 )
+				setItemCounter(itemCounter + 1);
 			} else {
-				alert( "Sorry, we do not have any more of this item available at this time." )
+				alert('Sorry, we do not have any more of this item available at this time.');
 			}
 		} else {
-			alert( "Sorry, this item is currently out of stock." )
+			alert('Sorry, this item is currently out of stock.');
 		}
 	};
 
